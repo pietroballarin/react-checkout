@@ -1,9 +1,11 @@
-import logo from './logo.svg';
+
 import './App.css';
+import SubscriptionOptions from './components/SubscriptionOptions'
 
 function App() {
   return (
     <div>
+    <SubscriptionOptions/>
     </div>
   );
 }
