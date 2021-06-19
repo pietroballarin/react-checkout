@@ -1,11 +1,12 @@
+import React from 'react';
+import { Steps, Step} from 'react-step-builder';
 
-import './App.css';
-import SubscriptionOptions from './components/SubscriptionOptions'
+import SubscriptionOptions from './components/SubscriptionOptions';
 
 function App() {
   return (
     <div>
-    <SubscriptionOptions/>
+      <SubscriptionOptions/>
     </div>
   );
 }
