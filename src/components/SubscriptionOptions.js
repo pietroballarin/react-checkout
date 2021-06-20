@@ -46,7 +46,7 @@ const handleUpfrontPayments = (e) => {
 
     return (
         <>
-            <h1 className="customize-plan-text">Customize Your Plan</h1>
+            <h1 className="title">Customize Your Plan</h1>
             <div className="plan-duration">
                 <button className="button is-rounded" onClick={handlePlanDuration3}>3 Months</button>
                 <button className="button is-rounded" onClick={handlePlanDuration6}>6 Months</button>

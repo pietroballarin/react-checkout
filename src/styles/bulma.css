@@ -2,10 +2,11 @@
     background-color: #182b3a;
 }
 
-.customize-plan-text {
+.title {
     color: #fff;
     text-align: center;
     font-weight: bolder;
+    margin: 3vh;
 }
 
 .step-text {
@@ -73,5 +74,28 @@
 	align-items: center;
 	align-content: space-around;
     margin-top: 4vh;
+}
+
+.back-next-btn {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: space-around;
+    margin-top: 5vh;
+}
+
+.card-details-box {
+    margin: 10% 20% 10% 20%;
+}
+
+
+.label {
+    color: #fff;
+}
+
+h1 {
+    color: #fff;
 }
 
