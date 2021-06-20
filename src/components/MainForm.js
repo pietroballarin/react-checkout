@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import PaymentDetails from './PaymentDetails';
 import SubscriptionOptions from './SubscriptionOptions';
 import Confirm from './Confirm';
+import SuccessScreen from './SuccessScreen';
+import PriceOverview from './PriceOverview';
 
 export default function MainForm() {
 
@@ -45,12 +47,8 @@ export default function MainForm() {
 
     // Upfront payments yes/no
     const changeUpfrontPayments = () => {
-        if (upfrontPayment){
-            setUpfrontPayment(false)
-        }
-        if (!upfrontPayment){
-            setUpfrontPayment(true)
-        }
+        if (!upfrontPayment) setUpfrontPayment(true)
+        else setUpfrontPayment(false)
     }
 
     //Credit card details 
@@ -89,16 +87,33 @@ export default function MainForm() {
             />)
         } else if (step === 3) {
             return (<Confirm
-                prevStep = {prevStep} 
+                prevStep = {prevStep}
+                planDuration = {planDuration}
+                gbVolume = {gbVolume}
+                upfrontPayment = {upfrontPayment}
+                creditCardValues = {creditCardValues}
             />)
+        } else if (step === 4) {
+            return (
+                <SuccessScreen
+                nextStep = {nextStep} 
+                />
+            )
         }
 
     }
 
     return (
-        <div>
-           <h1>Step {step} of 3</h1>
-           {showStep()}
-        </div>
+        <>    
+            <div>
+            <h1>Step {step} of 3</h1>
+            {showStep()}
+            </div>
+            <PriceOverview
+                planDuration = {planDuration}
+                gbVolume = {gbVolume}
+                upfrontPayment = {upfrontPayment}
+            />
+        </>
     )
 }

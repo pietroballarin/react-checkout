@@ -1,17 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
-export default function Total(props) {
-
-    const [price, setPrice] = useState()
+export default function PriceOverview(props) {
 
     useEffect(() => {
         axios.get('https://cloud-storage-prices-moberries.herokuapp.com/prices')
         .then(response => {
-            console.log(response.data.subscription_plans);
-            
+            const prices = response.data.subscription_plans.price_usd_per_gb
+            console.log(prices)
         })
+        .catch(err => err)
     })
+
+    // const price1 = price.map(el => {
+    //     console.log(el)
+    // })
+
+    
 
     return (
         <div>

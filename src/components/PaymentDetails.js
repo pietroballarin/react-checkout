@@ -23,7 +23,7 @@ export default function PaymentDetails(props) {
                 <label>
                     Card Number:
                     <input 
-                    type="text"
+                    type='text'
                     value={props.creditCardValues.cardNumber}
                     onChange={e => handleCardChange(e)}
                     id='cardNumber'
@@ -34,7 +34,7 @@ export default function PaymentDetails(props) {
                 <label>
                     cvc:
                     <input 
-                    type="text"
+                    type='number'
                     value={props.creditCardValues.cvc}
                     onChange={e => handleCardChange(e)}
                     id='cvc'
@@ -49,7 +49,8 @@ export default function PaymentDetails(props) {
                     name="expDate"       
                     placeholder="Expire Date"
                     value={props.creditCardValues.expDate}     
-                    onChange={e => handleCardChange(e)}    
+                    onChange={e => handleCardChange(e)} 
+                    required='true'   
                     /> 
                 </label>
             </div>
