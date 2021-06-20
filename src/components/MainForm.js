@@ -52,7 +52,6 @@ export default function MainForm() {
     }
 
     //Credit card details 
-
     const handleCardChange = event => {
         setCreditCardValues({...creditCardValues, [event.target.name]: event.target.value});
       }
@@ -100,7 +99,6 @@ export default function MainForm() {
                 />
             )
         }
-
     }
 
     return (

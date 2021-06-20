@@ -35,6 +35,11 @@ export default function Confirm(props) {
         .catch(err => err)
     }
 
+    const handleGoBack = (e) => {
+        e.preventDefault();
+        props.prevStep()
+    }
+
     return (
         <div>
             <h1>test</h1>
@@ -54,6 +59,11 @@ export default function Confirm(props) {
                     type="checkbox"
                     onChange={handleTermsConditionsCheck}
                     />
+                </div>
+                <div>
+                    <button onClick={handleGoBack}>
+                            Back 
+                    </button>
                 </div>
 
                 {termsConditions ? 

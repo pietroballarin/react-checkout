@@ -1,0 +1,31 @@
+.customize-plan {
+    text-align: center;
+}
+
+.button {
+    margin:1vh;
+    width: 18vh
+}
+
+.plan-duration {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: baseline;
+	align-content: space-around;
+    margin: 3vh;
+
+
+}
+
+.gb-volume {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: baseline;
+	align-content: space-around;
+    margin: 3vh;
+}
+

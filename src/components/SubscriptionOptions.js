@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 
+
 export default function SubscriptionOptions(props) {
 
 const handleContinue = (e) => {
@@ -45,25 +46,26 @@ const handleUpfrontPayments = (e) => {
 
     return (
         <>
-            <div>
-                <h1>Customize Your Plan</h1>
-                <button onClick={handlePlanDuration3}>3 Months</button>
-                <button onClick={handlePlanDuration6}>6 Months</button>
-                <button onClick={handlePlanDuration12}>12 Months</button>
+            <h1 className="customize-plan">Customize Your Plan</h1>
+            <div className="plan-duration">
+                <button className="button is-rounded" onClick={handlePlanDuration3}>3 Months</button>
+                <button className="button is-rounded" onClick={handlePlanDuration6}>6 Months</button>
+                <button className="button is-rounded" onClick={handlePlanDuration12}>12 Months</button>
+            </div>
+            <div className="gb-volume">
+                <button className="button is-rounded" onClick={handleGbVolume5}>5GB</button>
+                <button className="button is-rounded" onClick={handleGbVolume10}>10GB</button>
+                <button className="button is-rounded" onClick={handleGbVolume50}>50GB</button>
             </div>
             <div>
-                <button onClick={handleGbVolume5}>5GB</button>
-                <button onClick={handleGbVolume10}>10GB</button>
-                <button onClick={handleGbVolume50}>50GB</button>
-            </div>
-            <div>
+                <label>Upfront Payment</label>
                 <input
                 type="checkbox"
                 onChange={handleUpfrontPayments}
                 />
             </div>
             <div>
-                <button onClick={handleContinue}>
+                <button className="button" onClick={handleContinue}>
                     Next 
                 </button>
             </div>
