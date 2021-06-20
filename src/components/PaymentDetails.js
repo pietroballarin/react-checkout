@@ -12,8 +12,8 @@ export default function PaymentDetails(props) {
         props.prevStep()
     }
 
-    const handleChange = (e) => {
-        props.handleChange(e)
+    const handleCardChange = (e) => {
+        props.handleCardChange(e)
     }
     
     return (
@@ -21,17 +21,39 @@ export default function PaymentDetails(props) {
             <h1>Step2</h1>
             <div>
                 <label>
-                    CC:
+                    Card Number:
                     <input 
                     type="text"
-                    value={props.values}
-                    onChange={e => handleChange(e)}
-                    id='firstName'
-                    label='firstName'
-                    name='firstName' 
+                    value={props.creditCardValues.cardNumber}
+                    onChange={e => handleCardChange(e)}
+                    id='cardNumber'
+                    label='cardNumber'
+                    name='cardNumber' 
                     />
                 </label>
+                <label>
+                    cvc:
+                    <input 
+                    type="text"
+                    value={props.creditCardValues.cvc}
+                    onChange={e => handleCardChange(e)}
+                    id='cvc'
+                    label='cvc'
+                    name='cvc' 
+                    />
+                </label>
+                <label>
+                    date
+                    <input     
+                    type="date"     
+                    name="expDate"       
+                    placeholder="Expire Date"
+                    value={props.creditCardValues.expDate}     
+                    onChange={e => handleCardChange(e)}    
+                    /> 
+                </label>
             </div>
+            
             <div>
                 <button onClick={handleGoBack}>
                         Back 

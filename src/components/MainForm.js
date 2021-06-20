@@ -15,8 +15,7 @@ export default function MainForm() {
 
     //step2
     
-
-    const [value, setValue] = useState('');
+    const [creditCardValues, setCreditCardValues] = useState({cardNumber:'', cvc:'', expDate: ''});
 
     // Plan Duration
     const changePlanDurationTo3 = () => {
@@ -56,8 +55,8 @@ export default function MainForm() {
 
     //Credit card details 
 
-    const handleChange = event => {
-        setValue(event.target.value);
+    const handleCardChange = event => {
+        setCreditCardValues({...creditCardValues, [event.target.name]: event.target.value});
       }
 
     // handles next and back buttons
@@ -85,8 +84,8 @@ export default function MainForm() {
             return (<PaymentDetails
                 nextStep = {nextStep}
                 prevStep = {prevStep}
-                value={value}
-                handleChange={handleChange}
+                creditCardValues={creditCardValues}
+                handleCardChange={handleCardChange}
             />)
         } else if (step === 3) {
             return (<Confirm
