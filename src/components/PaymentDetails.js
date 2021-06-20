@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function PaymentDetails(props) {
 
@@ -12,15 +12,36 @@ export default function PaymentDetails(props) {
         props.prevStep()
     }
 
+    const handleChange = (e) => {
+        props.handleChange(e)
+    }
+    
     return (
         <div>
             <h1>Step2</h1>
-            <button onClick={handleContinue}>
-                    Next »
-            </button>
-            <button onClick={handleGoBack}>
-                    Back 
-            </button>
+            <div>
+                <label>
+                    CC:
+                    <input 
+                    type="text"
+                    value={props.values}
+                    onChange={e => handleChange(e)}
+                    id='firstName'
+                    label='firstName'
+                    name='firstName' 
+                    />
+                </label>
+            </div>
+            <div>
+                <button onClick={handleGoBack}>
+                        Back 
+                </button>
+                <button onClick={handleContinue}>
+                        Next »
+                </button>
+            </div>
+            
+            
         </div>
     )
 }

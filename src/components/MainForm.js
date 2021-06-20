@@ -14,7 +14,9 @@ export default function MainForm() {
     const [upfrontPayment, setUpfrontPayment] = useState(false);
 
     //step2
+    
 
+    const [value, setValue] = useState('');
 
     // Plan Duration
     const changePlanDurationTo3 = () => {
@@ -52,6 +54,12 @@ export default function MainForm() {
         }
     }
 
+    //Credit card details 
+
+    const handleChange = event => {
+        setValue(event.target.value);
+      }
+
     // handles next and back buttons
     const nextStep = () => {
         setStep(step +1)
@@ -76,7 +84,9 @@ export default function MainForm() {
         } else if (step === 2) {
             return (<PaymentDetails
                 nextStep = {nextStep}
-                prevStep = {prevStep} 
+                prevStep = {prevStep}
+                value={value}
+                handleChange={handleChange}
             />)
         } else if (step === 3) {
             return (<Confirm

@@ -48,7 +48,6 @@ const handleUpfrontPayments = (e) => {
     return (
         <>
             <div>
-
                 <h1>Customize Your Plan</h1>
                 <button onClick={handlePlanDuration3}>3 Months</button>
                 <button onClick={handlePlanDuration6}>6 Months</button>
@@ -63,7 +62,6 @@ const handleUpfrontPayments = (e) => {
                 <input
                 type="checkbox"
                 onChange={handleUpfrontPayments}
-                
                 />
             </div>
             <div>
