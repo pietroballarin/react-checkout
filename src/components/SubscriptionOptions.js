@@ -1,119 +1,75 @@
 import React, { useState } from 'react';
 
 
-export default function SubscriptionOptions() {
+export default function SubscriptionOptions(props) {
 
-const [planDuration, setPlanDuration] = useState('twelve-months');
-const [gbVolume, setGbVolume] = useState('fiveGb');
-const [upfrontPayment, setUpfrontPayment] = useState('no');
 
-const changePlanDuration = (event) => {
-    setPlanDuration(event.target.value);
+
+const handleContinue = (e) => {
+    e.preventDefault();
+    props.nextStep();
 }
 
-const changeGbVolume = (event) => {
-    setGbVolume(event.target.value);
+const handlePlanDuration3 = (e) => {
+    e.preventDefault();
+    props.changePlanDurationTo3()
 }
 
-const changeUpfrontPayment = (event) => {
-    setUpfrontPayment(event.target.value);
+const handlePlanDuration6 = (e) => {
+    e.preventDefault();
+    props.changePlanDurationTo6()
+}
+
+const handlePlanDuration12 = (e) => {
+    e.preventDefault();
+    props.changePlanDurationTo12()
+}
+
+const handleGbVolume5 = (e) => {
+    e.preventDefault();
+    props.changeGbVolumeTo5()
+}
+
+const handleGbVolume10 = (e) => {
+    e.preventDefault();
+    props.changeGbVolumeTo10()
+}
+
+const handleGbVolume50 = (e) => {
+    e.preventDefault();
+    props.changeGbVolumeTo50()
+}
+
+const handleUpfrontPayments = (e) => {
+    e.preventDefault();
+    props.changeUpfrontPayments()
 }
 
     return (
         <>
             <div>
-                <label htmlFor='planDuration'>
-                    <input 
-                        type='radio'
-                        id='planDuration-3-months'
-                        name='planDuration'
-                        value='three-months'
-                        checked={planDuration === 'three-months'}
-                        onChange={changePlanDuration}
-                    />
-                    3 Months
-                </label>
-                <label htmlFor='planDuration'>
-                    <input 
-                        type='radio'
-                        id='planDuration-6-months'
-                        name='planDuration'
-                        value='six-months'
-                        checked={planDuration === 'six-months'}
-                        onChange={changePlanDuration}
-                    />
-                    6 Months
-                </label>
-                <label htmlFor='planDuration'>
-                    <input 
-                        type='radio'
-                        id='planDuration-12-months'
-                        name='planDuration'
-                        value='twelve-months'
-                        checked={planDuration === 'twelve-months'}
-                        onChange={changePlanDuration}
-                    />
-                    12 Months
-                </label>
+
+                <h1>Customize Your Plan</h1>
+                <button onClick={handlePlanDuration3}>3 Months</button>
+                <button onClick={handlePlanDuration6}>6 Months</button>
+                <button onClick={handlePlanDuration12}>12 Months</button>
             </div>
             <div>
-                <label htmlFor='gbVolume'>
-                    <input 
-                        type='radio'
-                        id='gbVolume-five'
-                        name='gbVolume'
-                        value='fiveGb'
-                        checked={gbVolume === 'fiveGb'}
-                        onChange={changeGbVolume}
-                    />
-                    5 GB
-                </label>
-                <label htmlFor='gbVolume'>
-                    <input 
-                        type='radio'
-                        id='gbVolume-ten'
-                        name='gbVolume'
-                        value='tenGb'
-                        checked={gbVolume === 'tenGb'}
-                        onChange={changeGbVolume}
-                    />
-                    10 GB
-                </label>
-                <label htmlFor='gbVolume'>
-                    <input 
-                        type='radio'
-                        id='gbVolume-fifty'
-                        name='gbVolume'
-                        value='fiftyGb'
-                        checked={gbVolume === 'fiftyGb'}
-                        onChange={changeGbVolume}
-                    />
-                    50 GB
-                </label>
+                <button onClick={handleGbVolume5}>5GB</button>
+                <button onClick={handleGbVolume10}>10GB</button>
+                <button onClick={handleGbVolume50}>50GB</button>
             </div>
             <div>
-                <label htmlFor='upfrontPayment'>
-                    <input 
-                        type='radio'
-                        id='upfrontPayment-yes'
-                        name='upfrontPayment'
-                        value='yes'
-                        checked={upfrontPayment === 'yes'}
-                        onChange={changeUpfrontPayment}
-                    />
-                    YES
-                </label>
-                <label htmlFor='upfrontPayment'>
-                    <input 
-                        type='radio'
-                        id='upfrontPayment-no'
-                        name='upfrontPayment'
-                        value='no'
-                        checked={upfrontPayment === 'no'}
-                        onChange={changeUpfrontPayment}
-                    />
-                    NO
-                </label>
+                <input
+                type="checkbox"
+                onChange={handleUpfrontPayments}
+                
+                />
+            </div>
+            <div>
+                <button onClick={handleContinue}>
+                    Next 
+                </button>
             </div>
         </>
     )

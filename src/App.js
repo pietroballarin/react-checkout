@@ -1,12 +1,15 @@
-import React from 'react';
-import { Steps, Step} from 'react-step-builder';
+import React, { useState } from 'react';
 
+import MainForm from './components/MainForm'
 import SubscriptionOptions from './components/SubscriptionOptions';
+import PaymentDetails from './components/PaymentDetails';
+
 
 function App() {
+
   return (
     <div>
-      <SubscriptionOptions/>
+      <MainForm/>
     </div>
   );
 }
