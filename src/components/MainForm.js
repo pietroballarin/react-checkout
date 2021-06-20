@@ -104,7 +104,7 @@ export default function MainForm() {
     return (
         <>    
             <div>
-            <h1>Step {step} of 3</h1>
+            <h1 className="step-text">Step {step} of 3</h1>
             {showStep()}
             </div>
             <PriceOverview

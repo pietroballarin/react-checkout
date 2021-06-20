@@ -41,14 +41,18 @@ export default function PriceOverview(props) {
     }
 
     return (
-        <div>
-            <h3>{props.planDuration}</h3>
-            <h3>Monthly Price</h3>
-            <h3>{showPrice()}€</h3>
-            <h3>TOTAL {showPrice() * props.planDuration}€</h3>
+        <div className="box">
+            <h3>Storage: {props.gbVolume}GB</h3>
+            <h3>Duration: {props.planDuration} Months</h3>
+            <h3>Monthly Price: {showPrice()}€</h3>
+            
             {props.upfrontPayment ?
-            <h3>-20%</h3>
+            <>
+                <h3>TOTAL: {showPrice() * props.planDuration}€</h3>
+                <h3>-20%</h3>
+            </>
             : false}
+            
         </div>
     )
 }

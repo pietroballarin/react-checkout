@@ -8,9 +8,11 @@ import MainForm from './components/MainForm'
 function App() {
 
   return (
-    <div>
-      <MainForm/>
-    </div>
+    <>
+      <div className="background">
+        <MainForm/>
+      </div>
+    </>
   );
 }
 

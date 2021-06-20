@@ -46,7 +46,7 @@ const handleUpfrontPayments = (e) => {
 
     return (
         <>
-            <h1 className="customize-plan">Customize Your Plan</h1>
+            <h1 className="customize-plan-text">Customize Your Plan</h1>
             <div className="plan-duration">
                 <button className="button is-rounded" onClick={handlePlanDuration3}>3 Months</button>
                 <button className="button is-rounded" onClick={handlePlanDuration6}>6 Months</button>
@@ -57,14 +57,14 @@ const handleUpfrontPayments = (e) => {
                 <button className="button is-rounded" onClick={handleGbVolume10}>10GB</button>
                 <button className="button is-rounded" onClick={handleGbVolume50}>50GB</button>
             </div>
-            <div>
-                <label>Upfront Payment</label>
+            <div className="upfront-payment-box">
+                <label className="upfront-payment">Upfront Payment (-20%)</label>
                 <input
                 type="checkbox"
                 onChange={handleUpfrontPayments}
                 />
             </div>
-            <div>
+            <div className="next-btn">
                 <button className="button" onClick={handleContinue}>
                     Next 
                 </button>

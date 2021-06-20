@@ -1,10 +1,23 @@
-.customize-plan {
+.background {
+    background-color: #182b3a;
+}
+
+.customize-plan-text {
+    color: #fff;
     text-align: center;
+    font-weight: bolder;
+}
+
+.step-text {
+    color: #fff;
 }
 
 .button {
     margin:1vh;
-    width: 18vh
+    width: 18vh;
+    color: #fff;
+    background-color: #BC1439;
+    border: none;
 }
 
 .plan-duration {
@@ -15,8 +28,6 @@
 	align-items: baseline;
 	align-content: space-around;
     margin: 3vh;
-
-
 }
 
 .gb-volume {
@@ -27,5 +38,40 @@
 	align-items: baseline;
 	align-content: space-around;
     margin: 3vh;
+}
+
+.box {
+    width: 90%;
+    margin: 6vh 5% 15vh 5%;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: space-around;
+}
+
+.upfront-payment {
+    color: #fff;
+    text-align: center;
+}
+
+.upfront-payment-box {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: space-around;
+}
+
+.next-btn {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: space-around;
+    margin-top: 4vh;
 }
 
