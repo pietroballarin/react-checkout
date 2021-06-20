@@ -31,7 +31,8 @@ export default function PaymentDetails(props) {
                         onChange={e => handleCardChange(e)}
                         id='cardNumber'
                         label='cardNumber'
-                        name='cardNumber' 
+                        name='cardNumber'
+                        maxLength="16"
                         />
                     </label>
                 </div>
@@ -40,12 +41,13 @@ export default function PaymentDetails(props) {
                         CVC
                         <input
                         className="input" 
-                        type='number'
+                        type='string'
                         value={props.creditCardValues.cvc}
                         onChange={e => handleCardChange(e)}
                         id='cvc'
                         label='cvc'
-                        name='cvc' 
+                        name='cvc'
+                        maxLength={3}
                         />
                     </label>
                     <label className="label">
