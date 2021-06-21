@@ -1,10 +1,10 @@
-body {
-    height: 100%;
-}
 
 .background {
     background-color: #182b3a;
+    padding-top: 5vh;
+    padding-bottom: 15vh;
 }
+
 
 .title {
     color: #fff;
@@ -123,6 +123,7 @@ h1 {
 
 p {
     color: #fff;
+    text-align: center;
 }
 
 h2 {
