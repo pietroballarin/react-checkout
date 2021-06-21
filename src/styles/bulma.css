@@ -1,3 +1,7 @@
+body {
+    height: 100%;
+}
+
 .background {
     background-color: #182b3a;
 }
@@ -98,4 +102,33 @@
 h1 {
     color: #fff;
 }
+
+.terms-conditions {
+    text-align: center;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+    color: #fff;
+}
+
+.confirm-btn {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+p {
+    color: #fff;
+}
+
+h2 {
+    color: fff;
+    margin: 1vh;
+}
+
+
 

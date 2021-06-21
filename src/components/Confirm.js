@@ -42,37 +42,48 @@ export default function Confirm(props) {
 
     return (
         <div>
-            <h1>test</h1>
+            <h1 className="title">Confirm Your Choices</h1>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label for="email">Enter your email:</label>
-                    <input 
+                <div className="card-details-box">
+                    <label className="label">Enter Your Email Address</label>
+                    <input
+                    className="input" 
                     type="email" 
                     id="email" 
                     name="email"
                     value={userEmail}
                     onChange={e => handleEmailChange(e)}
                     />
-
-                    <label for='terms-conditions'>Terms & Conditions</label>
+                </div>
+                
+                <div className="terms-conditions">
+                    <label for='terms-conditions'>I agree to the 
+                        <a href="#"> Terms & Conditions</a>
+                    </label>
                     <input
+                    className="checkbox"
                     type="checkbox"
                     onChange={handleTermsConditionsCheck}
                     />
                 </div>
-                <div>
-                    <button onClick={handleGoBack}>
-                            Back 
-                    </button>
+
+                <div className="next-btn">
+                    <button className="button" onClick={handleGoBack}>Back </button>
                 </div>
 
                 {termsConditions ? 
-                <button
-                    type="submit"
-                    className="button is-yellow change-settings"
-                >
-                Confirm
-                </button> : <h1>t&c</h1>
+
+                <div className="confirm-btn">
+                    <button
+                        type="submit"
+                        className="button"
+                    >
+                    Confirm
+                    </button>
+                </div> 
+                
+                : <p>Please confirm the Terms & Conditions before continuing</p>
+
                 }
             </form>
         </div>

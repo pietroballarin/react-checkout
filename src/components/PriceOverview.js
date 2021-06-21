@@ -42,6 +42,7 @@ export default function PriceOverview(props) {
 
     return (
         <div className="box">
+            <h2>Your Plan</h2>
             <h3>Storage: {props.gbVolume}GB</h3>
             <h3>Duration: {props.planDuration} Months</h3>
             <h3>Monthly Price: {showPrice()}€</h3>

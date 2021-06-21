@@ -33,6 +33,7 @@ export default function PaymentDetails(props) {
                         label='cardNumber'
                         name='cardNumber'
                         maxLength="16"
+                        required={true}
                         />
                     </label>
                 </div>
@@ -47,7 +48,7 @@ export default function PaymentDetails(props) {
                         id='cvc'
                         label='cvc'
                         name='cvc'
-                        maxLength={3}
+                        maxLength="3"
                         />
                     </label>
                     <label className="label">
