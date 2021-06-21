@@ -131,5 +131,22 @@ h2 {
     margin: 1vh;
 }
 
+.card-error-msg {
+    color: #BC1439;
+    text-align: center;
+}
+
+.email-error-msg {
+    color: #BC1439;
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.email-box {
+    margin-bottom: 1vh;
+}
+
+
+
 
 

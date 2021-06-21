@@ -1,10 +1,12 @@
 import React, { useState }from 'react';
 import axios from "axios";
+import { validate } from 'react-email-validator';
 
 export default function Confirm(props) {
 
     const [userEmail, setUserEmail] = useState('');
     const [termsConditions, setTermsConditions] = useState(false);
+    const [emailErrorMessage, setEmailErrorMessage] = useState('')
 
     const planDuration = props.planDuration;
     const gbVolume = props.gbVolume;
@@ -20,19 +22,28 @@ export default function Confirm(props) {
         else setTermsConditions(false)
     }
 
+    const emailValidation = email => {
+        var email_regexp = new RegExp('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$', 'i');
+        return email_regexp.test(email)
+    }
+
     const handleSubmit = (e) => {
-        axios.post('https://httpbin.org/post', {
-            planDuration,
-            gbVolume,
-            upfrontPayment,
-            creditCardValues,
-            userEmail,
-        })
-        .then(response => {
-            props.nextStep()
-            console.log('confirm')
-        })
-        .catch(err => err)
+        if (emailValidation(userEmail) === false) {
+            setEmailErrorMessage('Please provide a valid email address')
+        } else { 
+            axios.post('https://httpbin.org/post', {
+                planDuration,
+                gbVolume,
+                upfrontPayment,
+                creditCardValues,
+                userEmail,
+            })
+            .then(response => {
+                props.nextStep()
+                console.log('confirm')
+            })
+            .catch(err => err)
+        }
     }
 
     const handleGoBack = (e) => {
@@ -44,7 +55,7 @@ export default function Confirm(props) {
         <div>
             <h1 className="title">Confirm Your Choices</h1>
             <form onSubmit={handleSubmit}>
-                <div className="card-details-box">
+                <div className="card-details-box email-box">
                     <label className="label">Enter Your Email Address</label>
                     <input
                     className="input" 
@@ -55,6 +66,8 @@ export default function Confirm(props) {
                     onChange={e => handleEmailChange(e)}
                     />
                 </div>
+                <h3 className="email-error-msg">{emailErrorMessage}</h3>
+                
                 
                 <div className="terms-conditions">
                     <label for='terms-conditions'>I agree to the 
@@ -68,7 +81,7 @@ export default function Confirm(props) {
                 </div>
 
                 <div className="next-btn">
-                    <button className="button" onClick={handleGoBack}>Back </button>
+                    <button className="button" onClick={handleGoBack}> Back </button>
                 </div>
 
                 {termsConditions ? 
@@ -82,10 +95,12 @@ export default function Confirm(props) {
                     </button>
                 </div> 
                 
-                : <p>Please confirm the Terms & Conditions before continuing</p>
+                : <p>Please accept the Terms & Conditions before continuing</p>
 
                 }
             </form>
+            
         </div>
+        
     )
 }

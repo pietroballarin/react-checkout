@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function PaymentDetails(props) {
 
+
+    const [invalidCardMessage, setInvalidCardMessage] = useState('')
+
     const handleContinue = (e) => {
-        e.preventDefault();
-        props.nextStep();
+        if (props.creditCardValues.cardNumber.length !== 1 &&
+            props.creditCardValues.cvc !== 1) {
+            setInvalidCardMessage('Please provide a valid credit card')
+        } else { 
+            e.preventDefault();
+            props.nextStep();
+        }
     }
 
     const handleGoBack = (e) => {
@@ -26,14 +34,12 @@ export default function PaymentDetails(props) {
                         Card Number
                         <input 
                         className="input"
-                        type='text'
+                        type='number'
                         value={props.creditCardValues.cardNumber}
                         onChange={e => handleCardChange(e)}
                         id='cardNumber'
                         label='cardNumber'
                         name='cardNumber'
-                        maxLength="16"
-                        required={true}
                         />
                     </label>
                 </div>
@@ -42,13 +48,12 @@ export default function PaymentDetails(props) {
                         CVC
                         <input
                         className="input" 
-                        type='string'
+                        type='number'
                         value={props.creditCardValues.cvc}
                         onChange={e => handleCardChange(e)}
                         id='cvc'
                         label='cvc'
                         name='cvc'
-                        maxLength="3"
                         />
                     </label>
                     <label className="label">
@@ -57,17 +62,17 @@ export default function PaymentDetails(props) {
                         className="input"     
                         type="date"     
                         name="expDate"       
-                        placeholder="Expire Date"
                         value={props.creditCardValues.expDate}     
-                        onChange={e => handleCardChange(e)} 
-                        required='true'   
+                        onChange={e => handleCardChange(e)}
                         /> 
                     </label>
                 </div>
+                <h3 className="card-error-msg">{invalidCardMessage}</h3>
                 <div className="back-next-btn">
                     <button className="button" onClick={handleGoBack}>Back</button>
                     <button className="button" onClick={handleContinue}>Next</button>
                 </div>
+                
             </div>
         </>
     )
