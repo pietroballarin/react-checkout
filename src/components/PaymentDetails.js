@@ -7,7 +7,9 @@ export default function PaymentDetails(props) {
 
     const handleContinue = (e) => {
         if (props.creditCardValues.cardNumber.length !== 1 &&
-            props.creditCardValues.cvc !== 1) {
+            props.creditCardValues.cvc !== 1 &&
+            props.creditCardValues.expMonth !== 1 &&
+            props.creditCardValues.expYear !== 1) {
             setInvalidCardMessage('Please provide a valid credit card')
         } else { 
             e.preventDefault();
@@ -29,7 +31,7 @@ export default function PaymentDetails(props) {
         <>
             <h1 className="title">Your Payment Details</h1>
             <div className="card-details-box">
-                <div className="field ">
+                <div className="field">
                     <label className="label">
                         Card Number
                         <input 
@@ -40,10 +42,11 @@ export default function PaymentDetails(props) {
                         id='cardNumber'
                         label='cardNumber'
                         name='cardNumber'
+                        placeholder='1234567890123456'
                         />
                     </label>
                 </div>
-                <div className="cvc-expdate">
+                <div>
                     <label className="label">
                         CVC
                         <input
@@ -54,18 +57,32 @@ export default function PaymentDetails(props) {
                         id='cvc'
                         label='cvc'
                         name='cvc'
+                        placeholder='123'
                         />
                     </label>
-                    <label className="label">
-                        Expiration Date
-                        <input
-                        className="input"     
-                        type="date"     
-                        name="expDate"       
-                        value={props.creditCardValues.expDate}     
-                        onChange={e => handleCardChange(e)}
-                        /> 
-                    </label>
+                    <h3 className="label">Expiration Date</h3>
+                    <div className="label exp-date">
+                        <label>
+                            <input
+                            className="input exp-date-left"     
+                            type="number"     
+                            name="expMonth"       
+                            value={props.creditCardValues.expMonth}     
+                            onChange={e => handleCardChange(e)}
+                            placeholder="MM"
+                            /> 
+                        </label>
+                        <label className="label">
+                            <input
+                            className="input exp-date-right"     
+                            type="number"     
+                            name="expYear"       
+                            value={props.creditCardValues.expYear}     
+                            onChange={e => handleCardChange(e)}
+                            placeholder="YY"
+                            /> 
+                        </label>
+                    </div>
                 </div>
                 <h3 className="card-error-msg">{invalidCardMessage}</h3>
                 <div className="back-next-btn">

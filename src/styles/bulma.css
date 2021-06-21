@@ -94,6 +94,24 @@
     margin: 10% 20% 10% 20%;
 }
 
+.exp-date {
+    display: flex;
+    flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+    width: 100%;
+    margin-top: 1.5%;
+}
+.exp-date-left {
+    margin-right: 10%;
+    width: 90%;
+}
+
+.exp-date-right {
+    margin-left: 10%;
+    width: 90%;
+}
 
 .label {
     color: #fff;
@@ -127,8 +145,13 @@ p {
 }
 
 h2 {
-    color: fff;
+    color: #fff;
     margin: 1vh;
+    font-weight: bolder;
+}
+
+.your-plan {
+    color:#182b3a
 }
 
 .card-error-msg {
@@ -145,6 +168,21 @@ h2 {
 .email-box {
     margin-bottom: 1vh;
 }
+
+.step-text {
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 7px;
+    border: 1px solid #fff;
+    text-align: center;
+}
+
+
+
+
+
+
+
 
 
 

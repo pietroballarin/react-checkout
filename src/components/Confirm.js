@@ -1,6 +1,6 @@
 import React, { useState }from 'react';
 import axios from "axios";
-import { validate } from 'react-email-validator';
+import SuccessScreen from './SuccessScreen';
 
 export default function Confirm(props) {
 
@@ -27,6 +27,10 @@ export default function Confirm(props) {
         return email_regexp.test(email)
     }
 
+    const showSuccessPage = () => {
+        return(<SuccessScreen/>)
+    }
+
     const handleSubmit = (e) => {
         if (emailValidation(userEmail) === false) {
             setEmailErrorMessage('Please provide a valid email address')
@@ -39,8 +43,8 @@ export default function Confirm(props) {
                 userEmail,
             })
             .then(response => {
-                props.nextStep()
-                console.log('confirm')
+                console.log(response)
+                showSuccessPage()
             })
             .catch(err => err)
         }
@@ -54,7 +58,6 @@ export default function Confirm(props) {
     return (
         <div>
             <h1 className="title">Confirm Your Choices</h1>
-            <form onSubmit={handleSubmit}>
                 <div className="card-details-box email-box">
                     <label className="label">Enter Your Email Address</label>
                     <input
@@ -88,6 +91,7 @@ export default function Confirm(props) {
 
                 <div className="confirm-btn">
                     <button
+                        onClick={handleSubmit}
                         type="submit"
                         className="button"
                     >
@@ -98,8 +102,6 @@ export default function Confirm(props) {
                 : <p>Please accept the Terms & Conditions before continuing</p>
 
                 }
-            </form>
-            
         </div>
         
     )

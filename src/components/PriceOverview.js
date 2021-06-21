@@ -35,14 +35,14 @@ export default function PriceOverview(props) {
             price = props.gbVolume * monthlyPrice 
         };
         if (props.upfrontPayment === true) {
-            price = price * 0.8
+            price = price * 0.9
         };
         return price;
     }
 
     return (
         <div className="box">
-            <h2>Your Plan</h2>
+            <h2 className="your-plan">Your Plan</h2>
             <h3>Storage: {props.gbVolume}GB</h3>
             <h3>Duration: {props.planDuration} Months</h3>
             <h3>Monthly Price: {showPrice()}€</h3>
@@ -50,7 +50,7 @@ export default function PriceOverview(props) {
             {props.upfrontPayment ?
             <>
                 <h3>TOTAL: {showPrice() * props.planDuration}€</h3>
-                <h3>-20%</h3>
+                <h3>-10%</h3>
             </>
             : false}
             

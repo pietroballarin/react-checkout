@@ -17,7 +17,7 @@ export default function MainForm() {
 
     //step2
     
-    const [creditCardValues, setCreditCardValues] = useState({cardNumber:'', cvc:'', expDate: ''});
+    const [creditCardValues, setCreditCardValues] = useState({cardNumber:'', cvc:'', expMonth:'', expYear: ''});
 
     // Plan Duration
     const changePlanDurationTo3 = () => {
@@ -46,9 +46,12 @@ export default function MainForm() {
     }
 
     // Upfront payments yes/no
-    const changeUpfrontPayments = () => {
-        if (!upfrontPayment) setUpfrontPayment(true)
-        else setUpfrontPayment(false)
+    const changeUpfrontPaymentTrue = () => {
+        setUpfrontPayment(true)
+    }
+
+    const changeUpfrontPaymentFalse = () => {
+        setUpfrontPayment(false)
     }
 
     //Credit card details 
@@ -75,7 +78,8 @@ export default function MainForm() {
                 changeGbVolumeTo5={changeGbVolumeTo5}
                 changeGbVolumeTo10={changeGbVolumeTo10}
                 changeGbVolumeTo50={changeGbVolumeTo50}
-                changeUpfrontPayments={changeUpfrontPayments}
+                changeUpfrontPaymentTrue={changeUpfrontPaymentTrue}
+                changeUpfrontPaymentFalse={changeUpfrontPaymentFalse}
             />)
         } else if (step === 2) {
             return (<PaymentDetails
@@ -92,13 +96,7 @@ export default function MainForm() {
                 upfrontPayment = {upfrontPayment}
                 creditCardValues = {creditCardValues}
             />)
-        } else if (step === 4) {
-            return (
-                <SuccessScreen
-                nextStep = {nextStep} 
-                />
-            )
-        }
+        } 
     }
 
     return (

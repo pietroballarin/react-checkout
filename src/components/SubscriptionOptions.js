@@ -39,9 +39,14 @@ const handleGbVolume50 = (e) => {
     props.changeGbVolumeTo50()
 }
 
-const handleUpfrontPayments = (e) => {
+const handleUpFrontPaymentTrue = (e) => {
     e.preventDefault();
-    props.changeUpfrontPayments()
+    props.changeUpfrontPaymentTrue()
+}
+
+const handleUpFrontPaymentFalse = (e) => {
+    e.preventDefault();
+    props.changeUpfrontPaymentFalse()
 }
 
     return (
@@ -58,11 +63,11 @@ const handleUpfrontPayments = (e) => {
                 <button className="button is-rounded" onClick={handleGbVolume50}>50GB</button>
             </div>
             <div className="upfront-payment-box">
-                <label className="upfront-payment">Upfront Payment (-20%)</label>
-                <input
-                type="checkbox"
-                onChange={handleUpfrontPayments}
-                />
+                <h2>Upfront Payment -10%</h2>
+                <div>
+                    <button className="button is-rounded" onClick={handleUpFrontPaymentTrue}>YES</button>
+                    <button className="button is-rounded" onClick={handleUpFrontPaymentFalse}>NO</button>
+                </div>
             </div>
             <div className="next-btn">
                 <button className="button" onClick={handleContinue}>
