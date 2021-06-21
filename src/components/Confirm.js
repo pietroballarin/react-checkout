@@ -6,7 +6,8 @@ export default function Confirm(props) {
 
     const [userEmail, setUserEmail] = useState('');
     const [termsConditions, setTermsConditions] = useState(false);
-    const [emailErrorMessage, setEmailErrorMessage] = useState('')
+    const [emailErrorMessage, setEmailErrorMessage] = useState('');
+    const [successScreen, setSuccessScreen] = useState(false)
 
     const planDuration = props.planDuration;
     const gbVolume = props.gbVolume;
@@ -27,10 +28,6 @@ export default function Confirm(props) {
         return email_regexp.test(email)
     }
 
-    const showSuccessPage = () => {
-        return(<SuccessScreen/>)
-    }
-
     const handleSubmit = (e) => {
         if (emailValidation(userEmail) === false) {
             setEmailErrorMessage('Please provide a valid email address')
@@ -44,7 +41,7 @@ export default function Confirm(props) {
             })
             .then(response => {
                 console.log(response)
-                showSuccessPage()
+                setSuccessScreen(true)
             })
             .catch(err => err)
         }
@@ -56,53 +53,57 @@ export default function Confirm(props) {
     }
 
     return (
-        <div>
-            <h1 className="title">Confirm Your Choices</h1>
-                <div className="card-details-box email-box">
-                    <label className="label">Enter Your Email Address</label>
-                    <input
-                    className="input" 
-                    type="email" 
-                    id="email" 
-                    name="email"
-                    value={userEmail}
-                    onChange={e => handleEmailChange(e)}
-                    />
-                </div>
-                <h3 className="email-error-msg">{emailErrorMessage}</h3>
-                
-                
-                <div className="terms-conditions">
-                    <label for='terms-conditions'>I agree to the 
-                        <a href="#"> Terms & Conditions</a>
-                    </label>
-                    <input
-                    className="checkbox"
-                    type="checkbox"
-                    onChange={handleTermsConditionsCheck}
-                    />
-                </div>
 
-                <div className="next-btn">
-                    <button className="button" onClick={handleGoBack}> Back </button>
-                </div>
+        <>
+            {successScreen ? <SuccessScreen/> :
+            <div>
+                <h1 className="title">Confirm Your Choices</h1>
+                    <div className="card-details-box email-box">
+                        <label className="label">Enter Your Email Address</label>
+                        <input
+                        className="input" 
+                        type="email" 
+                        id="email" 
+                        name="email"
+                        value={userEmail}
+                        onChange={e => handleEmailChange(e)}
+                        />
+                    </div>
+                    <h3 className="email-error-msg">{emailErrorMessage}</h3>
+                    
+                    
+                    <div className="terms-conditions">
+                        <label for='terms-conditions'>I agree to the 
+                            <a href="#"> Terms & Conditions</a>
+                        </label>
+                        <input
+                        className="checkbox"
+                        type="checkbox"
+                        onChange={handleTermsConditionsCheck}
+                        />
+                    </div>
 
-                {termsConditions ? 
+                    <div className="next-btn">
+                        <button className="button" onClick={handleGoBack}> Back </button>
+                    </div>
 
-                <div className="confirm-btn">
-                    <button
-                        onClick={handleSubmit}
-                        type="submit"
-                        className="button"
-                    >
-                    Confirm
-                    </button>
-                </div> 
-                
-                : <p>Please accept the Terms & Conditions before continuing</p>
+                    {termsConditions ? 
 
-                }
-        </div>
-        
+                    <div className="confirm-btn">
+                        <button
+                            onClick={handleSubmit}
+                            type="submit"
+                            className="button"
+                        >
+                        Confirm
+                        </button>
+                    </div> 
+                    
+                    : <p>Please accept the Terms & Conditions before continuing</p>
+
+                    }
+            </div>
+            }
+        </>
     )
 }
