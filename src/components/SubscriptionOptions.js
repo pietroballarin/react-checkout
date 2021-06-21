@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 
 
@@ -7,49 +7,50 @@ export default function SubscriptionOptions(props) {
 const handleContinue = (e) => {
     e.preventDefault();
     props.nextStep();
-}
+};
 
 const handlePlanDuration3 = (e) => {
     e.preventDefault();
-    props.changePlanDurationTo3()
-}
+    props.changePlanDurationTo3();
+};
 
 const handlePlanDuration6 = (e) => {
     e.preventDefault();
-    props.changePlanDurationTo6()
-}
+    props.changePlanDurationTo6();
+};
 
 const handlePlanDuration12 = (e) => {
     e.preventDefault();
-    props.changePlanDurationTo12()
-}
+    props.changePlanDurationTo12();
+};
 
 const handleGbVolume5 = (e) => {
     e.preventDefault();
-    props.changeGbVolumeTo5()
-}
+    props.changeGbVolumeTo5();
+};
 
 const handleGbVolume10 = (e) => {
     e.preventDefault();
-    props.changeGbVolumeTo10()
-}
+    props.changeGbVolumeTo10();
+};
 
 const handleGbVolume50 = (e) => {
     e.preventDefault();
-    props.changeGbVolumeTo50()
-}
+    props.changeGbVolumeTo50();
+};
 
 const handleUpFrontPaymentTrue = (e) => {
     e.preventDefault();
-    props.changeUpfrontPaymentTrue()
-}
+    props.changeUpfrontPaymentTrue();
+};
 
 const handleUpFrontPaymentFalse = (e) => {
     e.preventDefault();
-    props.changeUpfrontPaymentFalse()
-}
+    props.changeUpfrontPaymentFalse();
+};
 
     return (
+
         <>
             <h1 className="title">Customize Your Plan</h1>
             <div className="plan-duration">
@@ -76,4 +77,4 @@ const handleUpFrontPaymentFalse = (e) => {
             </div>
         </>
     )
-}
+};

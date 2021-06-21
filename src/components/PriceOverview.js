@@ -1,23 +1,23 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function PriceOverview(props) {
 
-    const [pricingInfo, setPricingInfo] = useState([])
+    const [pricingInfo, setPricingInfo] = useState([]);
 
     useEffect(() => {
-        axios.get('https://cloud-storage-prices-moberries.herokuapp.com/prices')
+        axios.get("https://cloud-storage-prices-moberries.herokuapp.com/prices")
         .then(response => {
             setPricingInfo(response.data.subscription_plans)
             console.log(response.data.subscription_plans)
         })
         .catch(err => err)
-    }, [])
+    }, []);
 
     const findPrices = pricingInfo.filter(el => {
         if (el.duration_months === props.planDuration) 
         return el.price_usd_per_gb;
-    })
+    });
 
     const monthlyPrice = findPrices.map(el => el.price_usd_per_gb);
 
@@ -41,6 +41,7 @@ export default function PriceOverview(props) {
     }
 
     return (
+        
         <div className="box">
             <h2 className="your-plan">Your Plan</h2>
             <h3>Storage: {props.gbVolume}GB</h3>

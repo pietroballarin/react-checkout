@@ -1,13 +1,13 @@
-import React, { useState }from 'react';
+import React, { useState }from "react";
 import axios from "axios";
-import SuccessScreen from './SuccessScreen';
+import SuccessScreen from "./SuccessScreen";
 
 export default function Confirm(props) {
 
-    const [userEmail, setUserEmail] = useState('');
+    const [userEmail, setUserEmail] = useState("");
     const [termsConditions, setTermsConditions] = useState(false);
-    const [emailErrorMessage, setEmailErrorMessage] = useState('');
-    const [successScreen, setSuccessScreen] = useState(false)
+    const [emailErrorMessage, setEmailErrorMessage] = useState("");
+    const [successScreen, setSuccessScreen] = useState(false);
 
     const planDuration = props.planDuration;
     const gbVolume = props.gbVolume;
@@ -15,24 +15,24 @@ export default function Confirm(props) {
     const creditCardValues = props.creditCardValues;
 
     const handleEmailChange = (e) => {
-        setUserEmail(e.target.value)
-    }
+        setUserEmail(e.target.value);
+    };
 
     const handleTermsConditionsCheck = (e) => {
         if (!termsConditions) setTermsConditions(true)
-        else setTermsConditions(false)
-    }
+        else setTermsConditions(false);
+    };
 
     const emailValidation = email => {
-        var email_regexp = new RegExp('^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$', 'i');
-        return email_regexp.test(email)
-    }
+        var email_regexp = new RegExp("^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$", "i");
+        return email_regexp.test(email);
+    };
 
     const handleSubmit = (e) => {
         if (emailValidation(userEmail) === false) {
-            setEmailErrorMessage('Please provide a valid email address')
+            setEmailErrorMessage("Please provide a valid email address");
         } else { 
-            axios.post('https://httpbin.org/post', {
+            axios.post("https://httpbin.org/post", {
                 planDuration,
                 gbVolume,
                 upfrontPayment,
@@ -43,19 +43,21 @@ export default function Confirm(props) {
                 console.log(response)
                 setSuccessScreen(true)
             })
-            .catch(err => err)
-        }
-    }
+            .catch(err => err);
+        };
+    };
 
     const handleGoBack = (e) => {
         e.preventDefault();
-        props.prevStep()
-    }
+        props.prevStep();
+    };
 
     return (
 
         <>
+
             {successScreen ? <SuccessScreen/> :
+
             <div>
                 <h1 className="title">Confirm Your Choices</h1>
                     <div className="card-details-box email-box">
@@ -69,11 +71,11 @@ export default function Confirm(props) {
                         onChange={e => handleEmailChange(e)}
                         />
                     </div>
+
                     <h3 className="email-error-msg">{emailErrorMessage}</h3>
-                    
-                    
+
                     <div className="terms-conditions">
-                        <label for='terms-conditions'>I agree to the 
+                        <label for="terms-conditions">I agree to the 
                             <a href="#"> Terms & Conditions</a>
                         </label>
                         <input
@@ -100,10 +102,9 @@ export default function Confirm(props) {
                     </div> 
                     
                     : <p>Please accept the Terms & Conditions before continuing</p>
-
                     }
             </div>
             }
         </>
     )
-}
+};

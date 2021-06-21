@@ -103,6 +103,7 @@
     width: 100%;
     margin-top: 1.5%;
 }
+
 .exp-date-left {
     margin-right: 10%;
     width: 90%;
@@ -151,7 +152,7 @@ h2 {
 }
 
 .your-plan {
-    color:#182b3a
+    color:#182b3a;
 }
 
 .card-error-msg {
@@ -176,15 +177,3 @@ h2 {
     border: 1px solid #fff;
     text-align: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-

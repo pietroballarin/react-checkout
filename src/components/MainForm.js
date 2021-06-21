@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import PaymentDetails from './PaymentDetails';
 import SubscriptionOptions from './SubscriptionOptions';
 import Confirm from './Confirm';
@@ -21,54 +21,55 @@ export default function MainForm() {
 
     // Plan Duration
     const changePlanDurationTo3 = () => {
-        setPlanDuration(3)
-    }
+        setPlanDuration(3);
+    };
 
     const changePlanDurationTo6 = () => {
-        setPlanDuration(6)
-    }
+        setPlanDuration(6);
+    };
 
     const changePlanDurationTo12 = () => {
-        setPlanDuration(12)
-    }
+        setPlanDuration(12);
+    };
 
     // Cloud Gb Volume
     const changeGbVolumeTo5 = () => {
-        setGbVolume(5)
-    }
+        setGbVolume(5);
+    };
 
     const changeGbVolumeTo10 = () => {
-        setGbVolume(10)
-    }
+        setGbVolume(10);
+    };
 
     const changeGbVolumeTo50 = () => {
-        setGbVolume(50)
-    }
+        setGbVolume(50);
+    };
 
     // Upfront payments yes/no
     const changeUpfrontPaymentTrue = () => {
-        setUpfrontPayment(true)
-    }
+        setUpfrontPayment(true);
+    };
 
     const changeUpfrontPaymentFalse = () => {
-        setUpfrontPayment(false)
-    }
+        setUpfrontPayment(false);
+    };
 
     //Credit card details 
     const handleCardChange = event => {
         setCreditCardValues({...creditCardValues, [event.target.name]: event.target.value});
-      }
+    };
 
     // handles next and back buttons
     const nextStep = () => {
-        setStep(step +1)
-    }
+        setStep(step +1);
+    };
 
     const prevStep = () => {
-        setStep(step -1)
-    }
+        setStep(step -1);
+    };
 
     const showStep = () => {
+
         if (step === 1) {
             return (<SubscriptionOptions
                 nextStep = {nextStep}
@@ -80,14 +81,16 @@ export default function MainForm() {
                 changeGbVolumeTo50={changeGbVolumeTo50}
                 changeUpfrontPaymentTrue={changeUpfrontPaymentTrue}
                 changeUpfrontPaymentFalse={changeUpfrontPaymentFalse}
-            />)
+            />);
+
         } else if (step === 2) {
             return (<PaymentDetails
                 nextStep = {nextStep}
                 prevStep = {prevStep}
                 creditCardValues={creditCardValues}
                 handleCardChange={handleCardChange}
-            />)
+            />);
+
         } else if (step === 3) {
             return (<Confirm
                 prevStep = {prevStep}
@@ -95,11 +98,12 @@ export default function MainForm() {
                 gbVolume = {gbVolume}
                 upfrontPayment = {upfrontPayment}
                 creditCardValues = {creditCardValues}
-            />)
-        } 
-    }
+            />);
+        }; 
+    };
 
     return (
+
         <>    
             <div>
             <h1 className="step-text">Step {step} of 3</h1>
@@ -112,4 +116,4 @@ export default function MainForm() {
             />
         </>
     )
-}
+};
