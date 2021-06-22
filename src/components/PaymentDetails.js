@@ -6,10 +6,11 @@ export default function PaymentDetails(props) {
     const [invalidCardMessage, setInvalidCardMessage] = useState("");
 
     const handleContinue = (e) => {
-        if (props.creditCardValues.cardNumber.length !== 1 &&
-            props.creditCardValues.cvc !== 1 &&
-            props.creditCardValues.expMonth !== 1 &&
-            props.creditCardValues.expYear !== 1) {
+        if (props.creditCardValues.cardNumber.length !== 16 ||
+            props.creditCardValues.cvc.length !== 3 ||
+            props.creditCardValues.expMonth.length !== 2 ||
+            props.creditCardValues.expYear.length !== 2 ||
+            props.creditCardValues.expMonth > 12) {
             setInvalidCardMessage("Please provide a valid credit card");
         } else { 
             e.preventDefault();
