@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles/bulma.css";
+import "./styles/styles.css";
 import "./index.css";
 import MainForm from "./components/MainForm";
 

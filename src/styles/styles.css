@@ -1,3 +1,7 @@
+body {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 .background {
     background-color: #182b3a;
@@ -5,16 +9,15 @@
     padding-bottom: 15vh;
 }
 
-
 .title {
     color: #fff;
     text-align: center;
     font-weight: bolder;
-    margin: 3vh;
 }
 
 .step-text {
     color: #fff;
+    margin-bottom: 5vh;
 }
 
 .button {
@@ -32,7 +35,7 @@
 	justify-content: space-around;
 	align-items: baseline;
 	align-content: space-around;
-    margin: 3vh;
+    margin: 6vh 3vh 3vh 3vh;
 }
 
 .gb-volume {
@@ -176,4 +179,19 @@ h2 {
     border-radius: 7px;
     border: 1px solid #fff;
     text-align: center;
+}
+
+.success-box {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+    padding-top: 15vh;
+}
+
+.success-box h1 {
+    font-weight: bolder;
+    font-size: 2em;
 }

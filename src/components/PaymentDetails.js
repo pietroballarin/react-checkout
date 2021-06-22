@@ -33,7 +33,7 @@ export default function PaymentDetails(props) {
 
             <div className="card-details-box">
                 <div className="field">
-                    <label className="label">
+                    <label className="label" htmlFor="cardNumber">
                         Card Number
                         <input 
                         className="input"
@@ -48,7 +48,7 @@ export default function PaymentDetails(props) {
                     </label>
                 </div>
                 <div>
-                    <label className="label">
+                    <label className="label" htmlFor="cvc">
                         CVC
                         <input
                         className="input" 
@@ -63,21 +63,23 @@ export default function PaymentDetails(props) {
                     </label>
                     <h3 className="label">Expiration Date</h3>
                     <div className="label exp-date">
-                        <label>
+                        <label htmlFor="expMonth">
                             <input
                             className="input exp-date-left"     
                             type="number"     
-                            name="expMonth"       
+                            name="expMonth"
+                            id="expMonth"       
                             value={props.creditCardValues.expMonth}     
                             onChange={e => handleCardChange(e)}
                             placeholder="MM"
                             /> 
                         </label>
-                        <label className="label">
+                        <label className="label" htmlFor="expYear">
                             <input
                             className="input exp-date-right"     
                             type="number"     
-                            name="expYear"       
+                            name="expYear"
+                            id="expYear"       
                             value={props.creditCardValues.expYear}     
                             onChange={e => handleCardChange(e)}
                             placeholder="YY"

@@ -40,7 +40,6 @@ export default function Confirm(props) {
                 userEmail,
             })
             .then(response => {
-                console.log(response)
                 setSuccessScreen(true)
             })
             .catch(err => err);
@@ -61,7 +60,7 @@ export default function Confirm(props) {
             <div>
                 <h1 className="title">Confirm Your Choices</h1>
                     <div className="card-details-box email-box">
-                        <label className="label">Enter Your Email Address</label>
+                        <label className="label" htmlFor="email">Enter Your Email Address</label>
                         <input
                         className="input" 
                         type="email" 
@@ -75,12 +74,14 @@ export default function Confirm(props) {
                     <h3 className="email-error-msg">{emailErrorMessage}</h3>
 
                     <div className="terms-conditions">
-                        <label for="terms-conditions">I agree to the 
-                            <a href="#"> Terms & Conditions</a>
+                        <label for="terms-conditions" htmlFor="checkbox">I agree to the 
+                            <a href=""> Terms & Conditions</a>
                         </label>
                         <input
                         className="checkbox"
                         type="checkbox"
+                        name="checkbox"
+                        id="checkbox"
                         onChange={handleTermsConditionsCheck}
                         />
                     </div>

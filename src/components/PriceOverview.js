@@ -9,7 +9,6 @@ export default function PriceOverview(props) {
         axios.get("https://cloud-storage-prices-moberries.herokuapp.com/prices")
         .then(response => {
             setPricingInfo(response.data.subscription_plans)
-            console.log(response.data.subscription_plans)
         })
         .catch(err => err)
     }, []);
@@ -41,7 +40,7 @@ export default function PriceOverview(props) {
     }
 
     return (
-        
+
         <div className="box">
             <h2 className="your-plan">Your Plan</h2>
             <h3>Storage: {props.gbVolume}GB</h3>

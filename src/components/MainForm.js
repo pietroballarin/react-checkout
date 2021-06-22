@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PaymentDetails from './PaymentDetails';
 import SubscriptionOptions from './SubscriptionOptions';
 import Confirm from './Confirm';
-import SuccessScreen from './SuccessScreen';
 import PriceOverview from './PriceOverview';
 
 export default function MainForm() {
